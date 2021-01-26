@@ -63,60 +63,60 @@ public class AmidstMenuBuilder {
 	}
 
 	private JMenu create_File() {
-		JMenu result = new JMenu("File");
+		JMenu result = new JMenu("文件");
 		result.setMnemonic(KeyEvent.VK_F);
 		// @formatter:off
-		Menus.item(result, actions::newFromSeed,           "New From Seed ...",          KeyEvent.VK_N, MenuShortcuts.NEW_FROM_SEED);
-		Menus.item(result, actions::newFromRandom,         "New From Random Seed",       KeyEvent.VK_R, MenuShortcuts.NEW_FROM_RANDOM_SEED);
+		Menus.item(result, actions::newFromSeed,           "从种子打开 ...",          KeyEvent.VK_N, MenuShortcuts.NEW_FROM_SEED);
+		Menus.item(result, actions::newFromRandom,         "从随机种子打开",       KeyEvent.VK_R, MenuShortcuts.NEW_FROM_RANDOM_SEED);
 		if (FeatureToggles.SEED_SEARCH) {
 			Menus.item(result, actions::searchForRandom,   "Search for Random Seed",     KeyEvent.VK_F, MenuShortcuts.SEARCH_FOR_RANDOM_SEED);
 		}
-		Menus.item(result, actions::openSaveGame,          "Open Save Game ...",         KeyEvent.VK_O, MenuShortcuts.OPEN_SAVE_GAME);
+		Menus.item(result, actions::openSaveGame,          "打开已保存的游戏 ...",         KeyEvent.VK_O, MenuShortcuts.OPEN_SAVE_GAME);
 		result.addSeparator();
-		Menus.item(result, actions::switchProfile,         "Switch Profile ...",         KeyEvent.VK_P, MenuShortcuts.SWITCH_PROFILE);
-		Menus.item(result, actions::exit,                  "Exit",                       KeyEvent.VK_X, MenuShortcuts.EXIT);
+		Menus.item(result, actions::switchProfile,         "切换游戏版本 ...",         KeyEvent.VK_P, MenuShortcuts.SWITCH_PROFILE);
+		Menus.item(result, actions::exit,                  "退出",                       KeyEvent.VK_X, MenuShortcuts.EXIT);
 		// @formatter:on
 		return result;
 	}
 
 	private JMenu create_World() {
-		JMenu result = new JMenu("World");
+		JMenu result = new JMenu("世界");
 		result.setEnabled(false);
 		result.setMnemonic(KeyEvent.VK_W);
 		// @formatter:off
-		Menus.item(result, actions::goToCoordinate,        "Go to Coordinate ...",       KeyEvent.VK_C, MenuShortcuts.GO_TO_COORDINATE);
-		Menus.item(result, actions::goToSpawn,             "Go to World Spawn",          KeyEvent.VK_S, MenuShortcuts.GO_TO_WORLD_SPAWN);
-		Menus.item(result, actions::goToStronghold,        "Go to Stronghold ...",       KeyEvent.VK_H, MenuShortcuts.GO_TO_STRONGHOLD);
-		Menus.item(result, actions::goToPlayer,            "Go to Player ...",           KeyEvent.VK_P, MenuShortcuts.GO_TO_PLAYER);
+		Menus.item(result, actions::goToCoordinate,        "跳转到指定坐标 ...",       KeyEvent.VK_C, MenuShortcuts.GO_TO_COORDINATE);
+		Menus.item(result, actions::goToSpawn,             "跳转到出生点",          KeyEvent.VK_S, MenuShortcuts.GO_TO_WORLD_SPAWN);
+		Menus.item(result, actions::goToStronghold,        "跳转到要塞 ...",       KeyEvent.VK_H, MenuShortcuts.GO_TO_STRONGHOLD);
+		Menus.item(result, actions::goToPlayer,            "跳转到玩家 ...",           KeyEvent.VK_P, MenuShortcuts.GO_TO_PLAYER);
 		result.addSeparator();
-		Menus.item(result, actions::zoomIn,                "Zoom In",                    KeyEvent.VK_I, MenuShortcuts.ZOOM_IN);
-		Menus.item(result, actions::zoomOut,               "Zoom Out",                   KeyEvent.VK_O, MenuShortcuts.ZOOM_OUT);
+		Menus.item(result, actions::zoomIn,                "放大",                    KeyEvent.VK_I, MenuShortcuts.ZOOM_IN);
+		Menus.item(result, actions::zoomOut,               "缩小",                   KeyEvent.VK_O, MenuShortcuts.ZOOM_OUT);
 		result.addSeparator();
 		savePlayerLocationsMenu =
-		Menus.item(result, actions::savePlayerLocations,   "Save Player Locations",      KeyEvent.VK_V, MenuShortcuts.SAVE_PLAYER_LOCATIONS);
+				Menus.item(result, actions::savePlayerLocations,   "保存玩家位置",      KeyEvent.VK_V, MenuShortcuts.SAVE_PLAYER_LOCATIONS);
 		savePlayerLocationsMenu.setEnabled(false);
 		reloadPlayerLocationsMenu =
-		Menus.item(result, actions::reloadPlayerLocations, "Reload Player Locations",    KeyEvent.VK_R, MenuShortcuts.RELOAD_PLAYER_LOCATIONS);
+				Menus.item(result, actions::reloadPlayerLocations, "重载玩家位置",    KeyEvent.VK_R, MenuShortcuts.RELOAD_PLAYER_LOCATIONS);
 		reloadPlayerLocationsMenu.setEnabled(false);
-		Menus.item(result, actions::howCanIMoveAPlayer,    "How Can I Move a Player?",   KeyEvent.VK_M);
+		Menus.item(result, actions::howCanIMoveAPlayer,    "怎样移动玩家?",   KeyEvent.VK_M);
 		result.addSeparator();
-		Menus.item(result, actions::copySeedToClipboard,   "Copy Seed to Clipboard",     KeyEvent.VK_B, MenuShortcuts.COPY_SEED_TO_CLIPBOARD);
-		Menus.item(result, actions::takeScreenshot,        "Take Screenshot ...",        KeyEvent.VK_T, MenuShortcuts.TAKE_SCREENSHOT);
+		Menus.item(result, actions::copySeedToClipboard,   "保存地图种子到剪贴板",     KeyEvent.VK_B, MenuShortcuts.COPY_SEED_TO_CLIPBOARD);
+		Menus.item(result, actions::takeScreenshot,        "截图 ...",        KeyEvent.VK_T, MenuShortcuts.TAKE_SCREENSHOT);
 		result.addSeparator();
-		Menus.item(result, actions::openExportDialog,      "Export Biomes to Image ...", KeyEvent.VK_X, MenuShortcuts.EXPORT_BIOMES);
+		Menus.item(result, actions::openExportDialog,      "导出群系到图片 ....", KeyEvent.VK_X, MenuShortcuts.EXPORT_BIOMES);
 		// @formatter:on
 		return result;
 	}
 
 	private JMenuItem create_Layers() {
-		JMenu result = new JMenu("Layers");
+		JMenu result = new JMenu("图层");
 		result.setMnemonic(KeyEvent.VK_L);
 		layersMenu = new LayersMenu(result, settings);
 		return result;
 	}
 
 	private JMenu create_Settings() {
-		JMenu result = new JMenu("Settings");
+		JMenu result = new JMenu("设置");
 		result.setMnemonic(KeyEvent.VK_S);
 		result.add(create_Settings_DefaultWorldType());
 		if (biomeProfileDirectory.isValid()) {
@@ -124,13 +124,13 @@ public class AmidstMenuBuilder {
 		}
 		result.addSeparator();
 		// @formatter:off
-		Menus.checkbox(result, settings.smoothScrolling,      "Smooth Scrolling");
+		Menus.checkbox(result, settings.smoothScrolling,      "平滑滚动");
 		Menus.checkbox(result, settings.fragmentFading,       "Fragment Fading");
-		Menus.checkbox(result, settings.maxZoom,              "Restrict Maximum Zoom");
-		Menus.checkbox(result, settings.showFPS,              "Show Framerate & CPU");
-		Menus.checkbox(result, settings.showScale,            "Show Scale");
-		Menus.checkbox(result, settings.showDebug,            "Show Debug Information");
-		Menus.checkbox(result, settings.useHybridScaling,     "Use Hybrid Scaling");
+		Menus.checkbox(result, settings.maxZoom,              "限制放大倍数");
+		Menus.checkbox(result, settings.showFPS,              "显示帧率和CPU");
+		Menus.checkbox(result, settings.showScale,            "显示比例尺");
+		Menus.checkbox(result, settings.showDebug,            "显示 Debug 信息");
+		Menus.checkbox(result, settings.useHybridScaling,     "使用混合缩放");
 		// @formatter:on
 		result.addSeparator();
 		result.add(create_Settings_LookAndFeel());
@@ -139,7 +139,7 @@ public class AmidstMenuBuilder {
 	}
 
 	private JMenu create_Settings_DefaultWorldType() {
-		JMenu result = new JMenu("Default World Type");
+		JMenu result = new JMenu("默认世界类型");
 		// @formatter:off
 		Menus.radios(result, settings.worldType, WorldType.getWorldTypeSettingAvailableValues());
 		// @formatter:on
@@ -205,10 +205,10 @@ public class AmidstMenuBuilder {
 		JMenu result = new JMenu("Help");
 		result.setMnemonic(KeyEvent.VK_H);
 		// @formatter:off
-		Menus.item(result, actions::displayLogMessages,    "Display Log Messages ...",   KeyEvent.VK_M);
-		Menus.item(result, actions::checkForUpdates,       "Check for Updates ...",      KeyEvent.VK_U);
-		Menus.item(result, actions::viewLicense,           "View Licenses ...",          KeyEvent.VK_L);
-		Menus.item(result, actions::about,                 "About ...",                  KeyEvent.VK_A);
+		Menus.item(result, actions::displayLogMessages,    "显示 Log 信息 ...",   KeyEvent.VK_M);
+		Menus.item(result, actions::checkForUpdates,       "检查更新 ...",      KeyEvent.VK_U);
+		Menus.item(result, actions::viewLicense,           "查看许可协议 ...",          KeyEvent.VK_L);
+		Menus.item(result, actions::about,                 "关于 ...",                  KeyEvent.VK_A);
 		// @formatter:on
 		return result;
 	}
